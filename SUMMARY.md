@@ -1,6 +1,5 @@
 # Summary
 
-* [前言](README.md)
 * [1.Linux、命令](chapter1.md)
   * [1.1.认识Linux](chapter1.1.md)
   * [1.2.Linux的不同版本及应用领域](chapter1.2.md)
