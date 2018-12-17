@@ -10,4 +10,5 @@
   * [1.6.Linux命令-用户、权限管理](chapter1.6.md)
   * [1.7.Linux命令-系统管理](chapter1.7.md)
   * [1.8.Linux命令-练习](chapter1.8.md)
+* [2.编辑器、服务器](2bian-ji-qi-3001-fu-wu-qi.md)
 
