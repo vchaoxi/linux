@@ -9,7 +9,7 @@
   * [1.6.Linux命令-用户、权限管理](chapter1.6.md)
   * [1.7.Linux命令-系统管理](chapter1.7.md)
   * [1.8.Linux命令-练习](chapter1.8.md)
-* [2.编辑器、服务器](chapteer2.md)
+* [2.编辑器、服务器](chapter2.md)
   * [2.1.gedit编辑器](chapter2.1.md)
   * [2.2.sublime编辑器](chapter2.2.md)
   * [2.3.编辑器之神-vim](chapter2.3.md)  
