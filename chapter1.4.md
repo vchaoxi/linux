@@ -1,6 +1,7 @@
 # 常用命令
 
 ![](/assets/01-linux基础-27.jpg)
+![](/assets/Untitled.png)
 
 - 很多人可能在电视或电影中看到过类似的场景，黑客面对一个黑色的屏幕，上面飘着密密麻麻的字符，梆梆一顿敲，就完成了窃取资料的任务。
 
@@ -14,7 +15,7 @@
 
 Linux命令格式:
 
-```python
+```
 
  command  [-options]  [parameter1]  …
 
