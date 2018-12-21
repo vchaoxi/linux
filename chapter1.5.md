@@ -16,12 +16,8 @@ ls常用参数：
 |-l|以列表方式显示文件的详细信息|
 |-h|配合-l以人性化的方式显示文件的大小|
 ![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 10-55-36.jpg)
-
-![](/assets/Snip20161219_39.png)
-
-![](/assets/Snip20161219_40.png)
-
-![](/assets/Snip20161219_41.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 11-01-21.jpg)
+![](/assets/:Users:dorayo:Desktop::Users:dorayo:Desktop:Screenshot from 2018-12-21 11-02-09.jpg)
 
 图中列出的信息含义如下图所示：
 
