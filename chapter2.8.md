@@ -26,7 +26,7 @@ $ vim -On file1 file2 ...
 
 2.使用小写o参数进行水平分屏
 
-```python
+```
 
 $ vim -on file1 file2 ...
 
