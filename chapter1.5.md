@@ -293,7 +293,7 @@ tar这个命令并没有压缩的功能，它只是一个打包的命令，但�
 
 ```
 
-![](/assets/Snip20161219_86.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 14-38-29.jpg)
 
 解压用法： tar zxvf 压缩包包名
 
@@ -302,12 +302,12 @@ tar这个命令并没有压缩的功能，它只是一个打包的命令，但�
 -z:指定压缩解压算法为 gzip
 
 ```
+![](/assets/jieya.jpg)
 
-![](/assets/Snip20161219_87.png)
 
 解压到指定目录：-C （大写字母“C”）
 
-![](/assets/Snip20161219_88.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 14-51-50.jpg)
 
 ### 文件压缩解压：bzip2
 
@@ -329,13 +329,13 @@ tar只负责打包文件，但不压缩，用bzip2压缩tar打包后的文件，
 
 解压文件：unzip -d 解压后目录文件 压缩文件
 
-![](/assets/Snip20161219_89.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 14-55-06.jpg)
 
-![](/assets/Snip20161219_90.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 14-55-53.jpg)
 
 ### 查看命令位置：which
 
-![](/assets/Snip20161219_74.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 15-03-07.jpg)
 
 
 
