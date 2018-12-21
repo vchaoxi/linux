@@ -10,15 +10,15 @@ Unix/Linux系统中的root账号通常用于系统的维护和管理，它对Uni
 
 在大多数版本的Unix/Linux中，都不推荐直接使用root账号登录系统。
 
-## < 1 >查看当前用户：whoami
+## 查看当前用户：whoami
 
 whoami该命令用户查看当前系统当前账号的用户名。可通过cat /etc/passwd查看系统用户信息。
 
 由于系统管理员通常需要使用多种身份登录系统，例如通常使用普通用户登录系统，然后再以su命令切换到root身份对传统进行管理。这时候就可以使用whoami来查看当前用户的身份。
 
-![](/assets/Snip20161219_98.png)
 
-## < 2 >查看登录用户：who
+
+## 查看登录用户：who
 
 who命令用于查看当前所有登录系统的用户信息。
 
@@ -30,9 +30,9 @@ who命令用于查看当前所有登录系统的用户信息。
 |-q或--count|只显示用户的登录账号和登录用户的数量|
 |-u或--heading|	显示列标题|
 
-![](/assets/Snip20161219_99.png)
 
-## < 3 >退出登录账户： exit
+
+## 退出登录账户： exit
 
 如果是图形界面，退出当前终端；
 
@@ -40,7 +40,7 @@ who命令用于查看当前所有登录系统的用户信息。
 
 如果是切换后的登陆用户，退出则返回上一个登陆账号。
 
-## < 4 >添加用户账号：useradd
+## 添加用户账号：useradd
 
 在Unix/Linux中添加用户账号可以使用adduser或useradd命令，因为adduser命令是指向useradd命令的一个链接，因此，这两个命令的使用格式完全一样。
 
@@ -68,24 +68,15 @@ useradd命令的使用格式如下： useradd [参数] 新建用户账号
 |useradd -d /home/a a -g test -m|创建一个用户名字叫a，主目录在/home/a，如果主目录不存在，就自动创建主目录，同时用户属于test组|
 |cat /etc/passwd|查看系统当前用户名|
 
-![](/assets/Snip20161219_100.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 15-19-46.jpg)
 
-## < 5 >设置用户密码：passwd
+## 设置用户密码：passwd
 
 在Unix/Linux中，超级用户可以使用passwd命令为普通用户设置或修改用户口令。用户也可以直接使用该命令来修改自己的口令，而无需在命令后面使用用户名。
 
-![](/assets/Snip20161219_101.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 15-20-25.jpg)
 
-## < 6 >删除用户：userdel
-
-|命令|含义|
-| - | - |
-|userdel abc(用户名)|删除abc用户，但不会自动删除用户的主目录|
-|userdel -r abc(用户名)|	删除用户，同时删除用户的主目录|
-
-![](/assets/Snip20161012_41.png)
-
-## < 7 >切换用户：su
+## 切换用户：su
 
 可以通过su命令切换用户，su后面可以加“-”。su和su –命令不同之处在于，su -切换到对应的用户时会将当前的工作目录自动转换到切换后的用户主目录：
 
@@ -106,11 +97,22 @@ Ubuntu下切换到root的简单命令:
 
 ![](/assets/Snip20161219_104.png)
 
-## < 8 >查看有哪些用户组
+## 删除用户：userdel
+
+|命令|含义|
+| - | - |
+|userdel abc(用户名)|删除abc用户，但不会自动删除用户的主目录|
+|userdel -r abc(用户名)|	删除用户，同时删除用户的主目录|
+
+![](/assets/Snip20161012_41.png)
+
+
+
+## 查看有哪些用户组
 
 方法一:
 
-```Python
+```
 
 cat /etc/group
 
@@ -120,7 +122,7 @@ cat /etc/group
 
 方法二:
 
-```python
+```
 
 groupmod +三次tab键
 
@@ -128,7 +130,7 @@ groupmod +三次tab键
 
 ![](/assets/Snip20161012_39.png)
 
-## < 9 >添加、删除组账号：groupadd、groupdel
+## 添加、删除组账号：groupadd、groupdel
 
 groupadd 新建组账号 groupdel 组账号 cat /etc/group 查看用户组
 
@@ -138,7 +140,7 @@ groupadd 新建组账号 groupdel 组账号 cat /etc/group 查看用户组
 
 ![](/assets/Snip20161012_43.png)
 
-## < 10 >修改用户所在组：usermod
+## 修改用户所在组：usermod
 
 使用方法：usermod -g 用户组 用户名
 
@@ -146,15 +148,15 @@ groupadd 新建组账号 groupdel 组账号 cat /etc/group 查看用户组
 
 ![](/assets/Snip20161012_44.png)
 
-## < 11 >查看用户在哪些组
+## 查看用户在哪些组
 
 ![](/assets/Snip20161012_50.png)
 
-## < 12 >为创建的普通用户添加sudo权限
+## 为创建的普通用户添加sudo权限
 
 新创建的用户，默认不能sudo，需要进行一下操作
 
-```python
+```
 
 sudo usermod -a -G adm 用户名
 
@@ -162,7 +164,7 @@ sudo usermod -a -G sudo 用户名
 
 ```
 
-## < 13 >usermod -g 与 -G的区别
+## usermod -g 与 -G的区别
 
 ```python
 
@@ -178,7 +180,7 @@ sudo usermod -a -G sudo 用户名
 
 ![](/assets/Snip20161012_52.png)
 
-## < 14 >修改文件权限：chmod
+## 修改文件权限：chmod
 
 chmod 修改文件权限有两种使用格式：字母法与数字法。
 
@@ -236,10 +238,10 @@ chmod 751 file：
 
 注意：如果想递归所有目录加上相同权限，需要加上参数“ -R ”。 如：chmod 777 test/ -R 递归 test 目录下所有文件加 777 权限
 
-## < 15 >修改文件所有者：chown
+## 修改文件所有者：chown
 
 ![](/assets/Snip20161219_110.png)
 
-## < 16 >修改文件所属组：chgrp
+## 修改文件所属组：chgrp
 
 ![](/assets/Snip20161219_111.png)
