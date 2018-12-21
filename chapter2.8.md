@@ -18,7 +18,7 @@ Ctr+w+w: 在多个窗口切换
 
 1.使用大写O参数进行垂直分屏
 
-```python
+```
 
 $ vim -On file1 file2 ...
 
