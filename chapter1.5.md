@@ -1,4 +1,4 @@
-# Linux命令-文件、磁盘管理
+![](/assets/chongdingxiang3.jpg)# Linux命令-文件、磁盘管理
 
 ## 文件管理
 
