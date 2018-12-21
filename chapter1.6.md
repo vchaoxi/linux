@@ -178,17 +178,14 @@ chmod 修改文件权限有两种使用格式：字母法与数字法。
 |w|write 表示可写入，对于一个目录，如果没有w权限，那么就意味着不能在目录下创建新的文件。|
 |x|excute 表示可执行，对于一个目录，如果没有x权限，那么就意味着不能通过cd进入这个目录。|
 
-![](/assets/Snip20161219_105.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 17-44-51.jpg)
 
-![](/assets/Snip20161219_106.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 17-49-26.jpg)
 
-![](/assets/Snip20161219_107.png)
 
 如果需要同时进行设定拥有者、同组者以及其他人的权限，参考如下：
 
-![](/assets/01-linux基础-117.png)
-
-![](/assets/01-linux基础-118.png)
+![](/assets/Screenshot from 2018-12-21 18-02-01.png)
 
 数字法：“rwx” 这些权限也可以用数字来代替
 
@@ -207,14 +204,14 @@ chmod 751 file：
 - 同组用户：读、执行的权限
 - 其它用户：执行的权限
 
-![](/assets/Snip20161219_108.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 17-49-26.jpg)
 
 注意：如果想递归所有目录加上相同权限，需要加上参数“ -R ”。 如：chmod 777 test/ -R 递归 test 目录下所有文件加 777 权限
 
 ## 修改文件所有者：chown
 
-![](/assets/Snip20161219_110.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 18-06-01.jpg)
 
 ## 修改文件所属组：chgrp
 
-![](/assets/Snip20161219_111.png)
+> sudo chgrp 组名 文件名
