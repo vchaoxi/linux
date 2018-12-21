@@ -177,8 +177,8 @@ grep常用正则表达式：
 
 |参数|含义|
 | - | - |
-|^f|行首匹配，搜寻以 f 开头的行，并显示行号；grep -n '^f' /etc/passwd |
-|sh$|行尾匹配，搜寻以 sh 结束的行，并显示行号；grep -n 'sh$' /etc/passwd |
+|^f|行首匹配，搜寻以 f 开头的行，并显示行号；grep -n '^f' /etc/passwd|
+|sh$|行尾匹配，搜寻以 sh 结束的行，并显示行号；grep -n 'sh$' /etc/passwd|
 |[Ss]igna[Ll]|匹配 [] 里中一系列字符中的一个；搜寻匹配单词signal、signaL、Signal、SignaL的行；grep -n '[Ss]igna[Ll]' 1.txt|
 |.|(点)匹配一个非换行符的字符；匹配 e 和 e 之间有任意一个字符，可以匹配 eee，eae，eve，但是不匹配 ee，eaae；grep -n 'e.e' 1.txt
 |
