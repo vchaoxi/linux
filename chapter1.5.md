@@ -177,7 +177,7 @@ grep常用正则表达式：
 
 |参数|含义|
 | - | - |
-|^a|行首,搜寻以 m 开头的行；grep -n '^a' 1.txt|
+|^a|行首,搜寻以 a 开头的行；grep -n '^a' 1.txt|
 |ke$|行尾,搜寻以 ke 结束的行；grep -n 'ke$' 1.txt|
 |[Ss]igna[Ll]|匹配 [] 里中一系列字符中的一个；搜寻匹配单词signal、signaL、Signal、SignaL的行；grep -n '[Ss]igna[Ll]' 1.txt|
 |.|(点)匹配一个非换行符的字符；匹配 e 和 e 之间有任意一个字符，可以匹配 eee，eae，eve，但是不匹配 ee，eaae；grep -n 'e.e' 1.txt
