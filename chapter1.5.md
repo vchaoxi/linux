@@ -15,8 +15,7 @@ ls常用参数：
 |-a|显示指定目录下所有子目录与文件，包括隐藏文件
 |-l|以列表方式显示文件的详细信息|
 |-h|配合-l以人性化的方式显示文件的大小|
-
-![](/assets/Snip20161219_38.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 10-55-36.jpg)
 
 ![](/assets/Snip20161219_39.png)
 
