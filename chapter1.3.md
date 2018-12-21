@@ -64,7 +64,7 @@ ubuntu没有盘符这个概念，只有一个根目录/，所有文件都在它�
 
 ```python
 
-/home/user
+/home/dorayo
 ~
 ```
 
