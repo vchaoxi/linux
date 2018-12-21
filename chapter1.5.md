@@ -80,19 +80,10 @@ cd后面可跟绝对路径，也可以跟相对路径。如果省略目录，则
 |cd ..|切换到上级目录|
 |cd -|可进入上次所在的目录|
 
-![](/assets/Snip20161219_47.png)
-
-![](/assets/Snip20161219_48.png)
-
-注意：
-
-- 如果路径是从根路径开始的，则路径的前面需要加上 “ / ”，如 “ /mnt ”，通常进入某个目录里的文件夹，前面不用加 “ / ”。
-
 ### 显示当前路径：pwd
 
 使用pwd命令可以显示当前的工作目录，该命令很简单，直接输入pwd即可，后面不带参数。
 
-![](/assets/Snip20161219_49.png)
 
 ### 创建目录：mkdir
 
@@ -100,7 +91,7 @@ cd后面可跟绝对路径，也可以跟相对路径。如果省略目录，则
 
 需要注意的是新建目录的名称不能与当前目录中已有的目录或文件同名，并且目录创建者必须对当前目录具有写权限。
 
-![](/assets/Snip20161219_50.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 12-23-11.jpg)
 
 ### 删除目录：rmdir
 
@@ -118,9 +109,10 @@ cd后面可跟绝对路径，也可以跟相对路径。如果省略目录，则
 |-f|强制删除，忽略不存在的文件，无需提示|
 |-r|递归地删除目录下的内容，删除文件夹时必须加此参数|
 
-![](/assets/Snip20161219_51.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 12-29-26.jpg)
 
-![](/assets/Snip20161219_52.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 12-36-32.jpg)
+
 
 ### 建立链接文件：ln
 
@@ -144,41 +136,17 @@ ln -s 源文件 链接文件
 
 注意：如果软链接文件和源文件不在同一个目录，源文件要使用绝对路径，不能使用相对路径。
 
-![](/assets/Snip20161219_53.png)
-
-![](/assets/Snip20161219_54.png)
-
-![](/assets/Snip20161219_56.png)
-
-![](/assets/Snip20161219_57.png)
-
-![](/assets/Snip20161219_58.png)
-
-![](/assets/Snip20161219_61.png)
-
-![](/assets/Snip20161219_62.png)
-
-![](/assets/Snip20161219_63.png)
-
-![](/assets/Snip20161219_64.png)
-
-![](/assets/Snip20161219_66.png)
-
-![](/assets/Snip20161219_67.png)
-
-![](/assets/Snip20161219_68.png)
-
-![](/assets/Snip20161219_69.png)
-
-![](/assets/Snip20161219_70.png)
-
-![](/assets/Snip20161219_71.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 12-47-25.jpg)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 12-52-08.jpg)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 12-58-50.jpg)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 13-03-22.jpg)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 13-04-57.jpg)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 13-07-06.jpg)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 13-11-45.jpg)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 13-27-06.jpg)
 
 ### 查看或者合并文件内容：cat
 
-![](/assets/Snip20161219_72.png)
-
-![](/assets/Snip20161219_114.png)
 
 ### 文本搜索：grep
 
