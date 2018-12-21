@@ -38,7 +38,7 @@ parameter1 …：传给命令的参数：可以是零个一个或多个
 
 如：ls --help
 
-** man（有问题找男人，manual)**
+** man（有问题找男人，manual）**
 
 man是linux提供的一个手册，包含了绝大部分的命令、函数使用说明
 
