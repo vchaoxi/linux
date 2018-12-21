@@ -1,5 +1,3 @@
-[TOC]
-
 # 文件和目录
 
 ## Windows和Linux文件系统区别
