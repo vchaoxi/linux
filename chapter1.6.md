@@ -153,12 +153,6 @@ sudo usermod -a -G sudo 用户名
 
 ```
 
-![](/assets/Snip20161012_53.png)
-
-![](/assets/Snip20161012_54.png)
-
-![](/assets/Snip20161012_52.png)
-
 ## 修改文件权限：chmod
 
 chmod 修改文件权限有两种使用格式：字母法与数字法。
