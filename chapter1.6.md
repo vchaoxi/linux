@@ -213,5 +213,5 @@ chmod 751 file：
 ![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 18-06-01.jpg)
 
 ## 修改文件所属组：chgrp
-
+类似 chown，语法如下：
 > sudo chgrp 组名 文件名
