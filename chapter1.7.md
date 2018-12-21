@@ -6,11 +6,11 @@ cal命令用于查看当前日历，-y显示整年日历
 
 ![](/assets/Snip20161218_28.png)
 
-## < 2 >显示或设置时间：date
+## 显示或设置时间：date
 
 设置时间格式（需要管理员权限）：
 
-```python
+```
 
 date [MMDDhhmm[[CC]YY][.ss]] +format
 
