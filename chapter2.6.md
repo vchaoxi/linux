@@ -100,5 +100,3 @@ scp -r RemoteUserName@RemoteHostIp:RemoteFolder FolderName
 scp -r RemoteHostIp:RemoteFolder FolderName
 
 ```
-
-![](/assets/Snip20161219_120.png)
