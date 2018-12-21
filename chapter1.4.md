@@ -28,7 +28,7 @@ parameter1 …：传给命令的参数：可以是零个一个或多个
 
 例：
 
-![](/assets/Snip20161218_27.png)
+![](/assets/Screenshot from 2018-12-21 12-03-09.png)
 
 ## 查看帮助文档
 

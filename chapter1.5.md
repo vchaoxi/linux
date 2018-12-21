@@ -1,5 +1,3 @@
-![](/assets/chongdingxiang3.jpg)# Linux命令-文件、磁盘管理
-
 ## 文件管理
 
 ### 查看文件信息：ls
