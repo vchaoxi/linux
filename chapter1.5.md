@@ -98,8 +98,7 @@ cp命令的功能是将给出的文件或目录复制到另一个文件或目录
 |-r|若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名。|
 |-v|显示拷贝进度|
 
-
-![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 13-57-27.jpg)
+![](/assets/:Users:dorayo:Desktop:cp.jpg)
 
 
 ### 移动文件：mv
@@ -258,19 +257,15 @@ tar命令很特殊，其参数前面可以使用“-”，也可以不使用。
 
 注意：除了f需要放在参数的最后，其它参数的顺序任意。
 
-![](/assets/Snip20161219_80.png)
-
-![](/assets/Snip20161219_81.png)
-
-![](/assets/Snip20161219_82.png)
+![](/assets/:Users:dorayo:Desktop:Screenshot from 2018-12-21 14-13-26.jpg)
 
 ### 文件压缩解压：gzip
 
-tar与gzip命令结合使用实现文件打包、压缩。 tar只负责打包文件，但不压缩，用gzip压缩tar打包后的文件，其扩展名一般用xxxx.tar.gz。
+tar与gzip命令结合使用实现文件打包、压缩。 tar只负责打包文件，但不压缩，用gzip压缩tar打包后的文件，其扩展名一般用xxxx.tar.gz 或 xxxx.tgz。
 
 gzip使用格式如下：
 
-```python
+```
 
 gzip  [选项]  被压缩文件
 
@@ -293,7 +288,7 @@ tar这个命令并没有压缩的功能，它只是一个打包的命令，但�
 
 压缩用法：tar cvzf 压缩包包名 文件1 文件2 ...
 
-```Python
+```
 
 -z ：指定压缩包的格式为：file.tar.gz
 
@@ -303,7 +298,7 @@ tar这个命令并没有压缩的功能，它只是一个打包的命令，但�
 
 解压用法： tar zxvf 压缩包包名
 
-```Python
+```
 
 -z:指定压缩包的格式为：file.tar.gz
 
