@@ -1,6 +1,6 @@
 # Linux命令-练习
 
-1.创建test目录，在里面创建aa bb cc三个目录，在aa里创建hello文件，在bb里创建world目录，在cc里创建itcast.py,然后执行ls -R,最后删除test
+1.创建test目录，在里面创建aa bb cc三个目录，在aa里创建hello文件，在bb里创建world目录，在cc里创建vchaoxi.py,然后执行ls -R,最后删除test
 
 2.查看当前Ubuntu的系统时间
 
