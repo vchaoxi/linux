@@ -29,7 +29,7 @@ CC为年前两位yy为年的后两位，前两位的mm为月，后两位的mm为
 |%M|分|
 |%S|秒|
 
-![](/assets/Snip20161218_30.png)
+![」(/assets/:Users:dorayo:Desktop:Selection_001.jpg)
 
 ## 查看进程信息：ps
 
