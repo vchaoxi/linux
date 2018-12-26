@@ -17,6 +17,6 @@
 7.显示/etc/passwd 文件中不以/bin/bash 结尾的行
 > grep -v '/bin/bash' /etc/passwd
 
-8.显示用户vchaoxi默认的shell 程序
+8.显示用户vchaoxi默认的shell程序
 
 grep "^rpc\>" /etc/passwd|cut -d: -f7
