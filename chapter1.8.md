@@ -18,5 +18,7 @@
 > grep -v '/bin/bash' /etc/passwd
 
 8.显示用户vchaoxi默认的shell程序
+> grep "^vchaoxi" /etc/passwd|cut -d: -f7
 
-grep "^vchaoxi" /etc/passwd|cut -d: -f7
+9.找出/etc/passwd 中的两位或三位数
+> grep -o "[[:digit:]]\{2,3\}" /etc/passwd
