@@ -13,10 +13,7 @@
 6.显示/proc/meminfo 文件中以大写或小写s开头的行( 要求：使用两种方法)
 
 7.显示/etc/passwd 文件中不以/bin/bash 结尾的行
-> grep -v '/bin/bash' /etc/passwd
 
 8.显示用户vchaoxi默认的shell程序
-> grep "^vchaoxi" /etc/passwd|cut -d: -f7
 
 9.取出磁盘各分区利用率，并从大到小排序
-> df | grep -o '\<[0-9]*%' | sort -nr
