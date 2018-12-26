@@ -21,4 +21,4 @@
 > grep "^vchaoxi" /etc/passwd|cut -d: -f7
 
 9.取出磁盘各分区利用率，并从大到小排序
-> 
+> df | grep -o '\<[0-9]*%' | sort -n
