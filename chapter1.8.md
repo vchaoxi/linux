@@ -19,4 +19,4 @@
 
 8.显示用户vchaoxi默认的shell程序
 
-grep "^rpc\>" /etc/passwd|cut -d: -f7
+grep "^vchaoxi\>" /etc/passwd|cut -d: -f7
