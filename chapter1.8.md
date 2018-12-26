@@ -15,5 +15,6 @@
 > grep -i '^[s]' /proc/meminfo
 
 7.显示/etc/passwd 文件中不以/bin/bash 结尾的行
+> grep -v '/bin/bash' /etc/passwd
 
 8.
