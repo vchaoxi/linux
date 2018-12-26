@@ -20,5 +20,5 @@
 8.显示用户vchaoxi默认的shell程序
 > grep "^vchaoxi" /etc/passwd|cut -d: -f7
 
-9.找出/etc/passwd 中的两位或三位数
-> grep -o "[[:digit:]]\{2,3\}" /etc/passwd
+9.取出磁盘各分区利用率，并从大到小排序
+> 
