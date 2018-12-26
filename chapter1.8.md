@@ -11,6 +11,8 @@
 5.创建一个叫xiapei或liuhao的用户，然后创建一个新的用户组叫xifei，并将xiapei或liuhao用户添加到这个用户组中，然后创建一个新的文件，名字叫123.py，并修它的用户组为xifei
 
 6.显示/proc/meminfo 文件中以大写或小写s开头的行( 要求：使用两种方法)
+> grep '^[sS]' /proc/meminfo
+> grep -i '^[s]' /proc/meminfo
 
 7.显示/etc/passwd 文件中不以/bin/bash 结尾的行
 
