@@ -55,7 +55,7 @@ SSH 告知用户，这个主机不能识别，这时键入"yes"，SSH 就会将�
 scp -r 目标用户名@目标主机IP地址：/目标文件的绝对路径  /保存到本机的绝对/相对路径
 
 举例：
-scp -r itcast@192.168.1.100:/home/itcast/QQ_dir/ ./mytest/lisi
+scp -r vchaoxi@192.168.1.100:/home/vchaoxi/test/ ./test
 
 在后续会提示输入“yes”此时，只能输“yes”而不能简单输入“Y”
 
@@ -100,3 +100,4 @@ scp -r RemoteUserName@RemoteHostIp:RemoteFolder FolderName
 scp -r RemoteHostIp:RemoteFolder FolderName
 
 ```
+

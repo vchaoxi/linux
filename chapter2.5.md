@@ -62,17 +62,17 @@ sudo vi /etc/vsftpd.conf
 
 ```python
 
-ftp  IP
+ftp  <IP>
 
 ```
 
-![](/assets/01-linux基础-113.png)
+
 
 4.上传命令，可以把文件上传到ftp服务器
 
 ```python
 
-put somefile
+put <somefile>
 
 ```
 
@@ -80,10 +80,9 @@ put somefile
 
 ```python
 
-get somefile
+get <somefile>
 
 ```
 
 ## 图形界面的ftp客户端(filezilla)
 
-![](/assets/01-linux基础-114.png)
