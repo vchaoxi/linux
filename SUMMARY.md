@@ -19,5 +19,7 @@
   * [2.6 Linux常用服务器构建-ssh和scp](chapter2.6.md)
   * [2.7 Linux常用服务器构建-samba](chapter2.7.md)
 * [三、扩展](chapter3.md)
-  * [3.1 find & grep](chapter2.1.md)
+  * [3.1 find & grep](chapter3.1.md)]
+  * [3.2 awk](chapter3.2.md)
+  * [3.3 sed](chapter3.3.md)
  
