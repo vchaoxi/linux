@@ -214,4 +214,6 @@ N：上一个
 
 ## linux 内置 vim 中文教程
 
-`vimtutor zn_ch`
+```
+vimtutor zn_ch
+```
