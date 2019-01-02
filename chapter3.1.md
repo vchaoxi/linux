@@ -6,7 +6,7 @@
 ```
 setxkbmap -option ctrl:swapcaps
 ```
-### 将 Caps Lock 键修改为 Control 键（永久生效）(推荐)
+### 将 Caps Lock 键修改为 Control 键（永久生效，推荐！）
 
 - 编辑 keyboard 文件
 
