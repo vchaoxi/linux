@@ -43,14 +43,14 @@ sudo timedatectl set-local-rtc 1
 
 ### 02. 如果因 Ubuntu 和 Windows 的双系统造成了 Windows 系统的时间错误，执行如下命令（若无问题，忽视即可）
 
-1. 先在ubuntu下更新一下时间，确保时间无误
+- 先在ubuntu下更新一下时间，确保时间无误
 
 ```
 sudo apt install ntpdate
 sudo ntpdate time.windows.com
 ```
 
-2. 然后将时间更新到硬件上
+- 然后将时间更新到硬件上
 
 ```
 sudo hwclock --localtime --systohc
@@ -110,31 +110,32 @@ sudo apt install git
 
 ### 04. 安装并更换 zsh
 
-1. 安装 zsh
+- 安装 zsh
 
 ```
 sudo apt install zsh
 ```
 
-2. 切换 shell 为 zsh
+- 切换 shell 为 zsh
 
 ```
 chsh -s /bin/zsh
 ```
 
-3. 安装 oh-my-zsh 配置
+- 安装 oh-my-zsh 配置
 
 ```
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-4. 安装语法高亮插件 zsh-syntax-highlighting
+- 安装语法高亮插件 zsh-syntax-highlighting
+
 ```
-# 1. clone 插件源码到 oh-my-zsh 的 plugins 目录
+1. clone 插件源码到 oh-my-zsh 的 plugins 目录
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# 2. 在 ~/.zshrc 中激活该插件
+2. 在 ~/.zshrc 中激活该插件
 plugins=( [plugins...] zsh-syntax-highlighting)
-# 3. 使用 source 命令使配置生效
+3. 使用 source 命令使配置生效
 source ~/.zshrc
 ```
 
@@ -211,25 +212,25 @@ sudo apt install openssh-server
 ## 其他软件
 ### 01. 安装 Chrome 浏览器 和其插件 SwitchyOmega
 
-1.  下载 Google Chrome
+-  下载 Google Chrome
 
 ```
 axel -n10 https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
-2. 安装 Google Chrome
+- 安装 Google Chrome
 
 ```
 sudo gdebi google-chrome-stable_current_amd64.deb
 ```
 
-3. 运行 Google Chrome
+- 运行 Google Chrome
 
 ```
 google-chrome
 ```
 
-4. 安装并配置插件 SwitchyOmega （略）
+- 安装并配置插件 SwitchyOmega （略）
 
 ### 02. 安装 unrar
 
@@ -239,45 +240,45 @@ sudo apt install unrar
 
 ### 03. 安装搜狗输入法
 
-1. 卸载 ibus
+- 卸载 ibus
 
 ```
 sudo apt-get remove ibus
 ```
 
-2. 清除 ibus 配置
+- 清除 ibus 配置
 
 ```
 sudo apt purge ibus
 ```
 
-3. 安装 fcitx 输入法框架
+- 安装 fcitx 输入法框架
 
 ```
 sudo apt install fcitx-table-wbpy fcitx-config-gtk
 ```
 
-4. 切换为 fcitx 输入法，并重启系统
+- 切换为 fcitx 输入法，并重启系统
 
 ```
 im-config -n fcitx
 sudo shutdown -r now
 ```
 
-5. 下载搜狗输入法
+- 下载搜狗输入法
 
 ```
 axel -n10 http://cdn2.ime.sogou.com/dl/index/1524572264/sogoupinyin_2.2.0.0108_amd64.deb?st=ryCwKkvb-0zXvtBlhw5q4Q&e=1529739124&fn=sogoupinyin_2.2.0.0108_amd64.deb
 ```
 
-6. 安装搜狗输入法
+- 安装搜狗输入法
 
 ```
 sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb
 sudo apt install -f
 ```
 
-7. 重启，打开 fcitx 输入法配置，能看到 SougouPinyin
+- 重启，打开 fcitx 输入法配置，能看到 SougouPinyin
 
 ```
 sudo shutdown -r now
