@@ -20,7 +20,8 @@
   * [2.7 Linux常用服务器构建-samba](chapter2.7.md)
 * [三、扩展](chapter3.md)
   * [3.1 Ubuntu 18.04 常用配置](chapter3.1.md)
-  * [3.2 find & grep](chapter3.2.md)]
-  * [3.3 awk](chapter3.3.md)
-  * [3.4 sed](chapter3.4.md)
+  * [3.2 Ubuntu 18.04 Vim 继承配置使用及说明](chapter3.2.md)
+  * [3.3 find & grep](chapter3.3.md)]
+  * [3.4 awk](chapter3.4.md)
+  * [3.5 sed](chapter3.5.md)
  
