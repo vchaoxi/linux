@@ -1,449 +1,211 @@
-# sed 简明教程
+# awk 教程
 
-sed是一种流编辑器，它是文本处理中非常有用的工具，能够完美的配合正则表达式使用，功能不同凡响。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。
+[awk](https://en.wikipedia.org/wiki/AWK)是处理文本文件的一个应用程序，几乎所有 Linux 系统都自带这个程序。它依次处理文件的每一行，并读取里面的每一个字段。对于日志、CSV 那样的每行格式相同的文本文件,awk可能是最方便的工具。
 
+   awk 其实不仅仅是工具软件，还是一种编程语言。不过，本文只介绍它的命令行用法，对于大多数场合，应该足够用了。
 
-### 用s命令替换
-
-
-我使用下面的这段文本做演示：
+# 一、基本用法
 
 
-```
- $ cat pets.txt
- This is my cat
-   my cat's name is betty
- This is my dog
-   my dog's name is frank
- This is my fish
-   my fish's name is george
- This is my goat
-   my goat's name is adam
-```
-
-把其中的"my"字符串替换成"Dorayo’s"，下面的语句应该很好理解（s表示替换命令，/my/表示匹配my，/Dorayo's/表示把匹配替换成Dorayo's，/g 表示一行上的替换所有的匹配）：
+awk 的基本用法就是下面的形式。
 
 ```
- $ sed "s/my/Dorayo's/g" pets.txt
- This is Dorayo's cat
-   Dorayo's cat's name is betty
- This is Dorayo's dog
-   Dorayo's dog's name is frank
- This is Dorayo's fish
-   Dorayo's fish's name is george
- This is Dorayo's goat
-   Dorayo's goat's name is adam
+# 格式
+$ awk 动作 文件名
+
+# 示例
+$ awk '{print $0}' demo.txt
 ```
+上面示例中，demo.txt是awk所要处理的文本文件。前面单引号内部有一个大括号，里面就是每一行的处理动作print \$0。其中，print是打印命令，$0代表当前行，因此上面命令的执行结果，就是把每一行原样打印出来。
 
-
-
-> 注意：如果你要使用单引号，那么你没办法通过\'这样来转义，就用双引号就可以了
-
-> 再注意：上面的sed并没有对文件的内容改变，只是把处理过后的内容输出，如果你要写回文件，你可以使用重定向，如：
-
-
+下面，我们先用标准输入（stdin）演示上面这个例子。
 
 ```
-$ sed "s/my/Dorayo's/g" pets.txt > dorayo_pets.txt  
-```
-
-
-
-或使用 -i 参数直接修改文件内容：
-
+$ echo 'this is a test' | awk '{print $0}'
+this is a test
 
 ```
 
-$ sed -i "s/my/Dorayo's/g" pets.txt
+上面代码中，print $0就是把标准输入this is a test，重新打印了一遍。
+
+awk会根据空格和制表符，将每一行分成若干字段，依次用\$1、\$2、$3代表第一个字段、第二个字段、第三个字段等等。
+
+```
+$ echo 'this is a test' | awk '{print $3}'
+a
+```
+
+上面代码中，$3代表this is a test的第三个字段a。
+下面，为了便于举例，我们把/etc/passwd文件保存成demo.txt。
+
+```
+root:x:0:0:root:/root:/usr/bin/zsh
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+```
+
+这个文件的字段分隔符是冒号（:），所以要用-F参数指定分隔符为冒号。然后，才能提取到它的第一个字段。
+
+```
+$ awk -F ':' '{ print $1 }' demo.txt
+root
+daemon
+bin
+sys
+sync
+```
+
+# 二、变量
+
+除了\$ + 数字表示某个字段，awk还提供其他一些变量。
+变量NF表示当前行有多少个字段，因此$NF就代表最后一个字段。
+
+```
+$ echo 'this is a test' | awk '{print $NF}'
+test
+```
+
+$(NF-1)代表倒数第二个字段。
+
+```
+$ awk -F ':' '{print $1, $(NF-1)}' demo.txt
+root /root
+daemon /usr/sbin
+bin /bin
+sys /dev
+sync /bin
 ```
 
 
-在每一行最前面加点东西：
-
-
-
-```
-$ sed 's/^/#/g' pets.txt
-#This is my cat
-#  my cat's name is betty
-#This is my dog
-#  my dog's name is frank
-#This is my fish
-#  my fish's name is george
-#This is my goat
-#  my goat's name is adam
-```
-
-
-在每一行最后面加点东西：
-
+上面代码中，print命令里面的逗号，表示输出的时候，两个部分之间使用空格分隔。
+变量NR表示当前处理的是第几行。
 
 ```
-$ sed 's/$/ --- /g' pets.txt
-This is my cat ---
-  my cat's name is betty ---
-This is my dog ---
-  my dog's name is frank ---
-This is my fish ---
-  my fish's name is george ---
-This is my goat ---
-  my goat's name is adam ---
+$ awk -F ':' '{print NR ") " $1}' demo.txt
+1) root
+2) daemon
+3) bin
+4) sys
+5) sync
 ```
 
-  
+上面代码中，print命令里面，如果原样输出字符，要放在双引号里面。
+awk的其他内置变量如下。
 
-顺手介绍一下正则表达式的一些最基本的东西：
-
- - ^ 表示一行的开头。如：/^#/ 以#开头的匹配。
- - \$ 表示一行的结尾。如：/}$/ 以}结尾的匹配。
- - \< 表示词首。 如：\<abc 表示以 abc 为首的词。
- - \> 表示词尾。 如：abc\> 表示以 abc 结尾的词。
- - . 表示任何单个字符。
- - ` *` 表示某个字符出现了0次或多次。
- -  \[\]字符集合。 如：[abc] 表示匹配a或b或c，还有 [a-zA-Z] 表示匹配所有的26个字符。如果其中有^表示反，如 `[^a]` 表示非a的字符
+ - FILENAME：当前文件名
+ - FS：字段分隔符，默认是空格和制表符。
+ - RS：行分隔符，用于分割每一行，默认是换行符。
+ - OFS：输出字段的分隔符，用于打印时分隔字段，默认为空格。
+ - ORS：输出记录的分隔符，用于打印时分隔记录，默认为换行符。
+ - OFMT：数字输出的格式，默认为％.6g。
 
 
-正则表达式是一些很牛的事，比如我们要去掉某html中的tags：
-
-```
-<b>This</b> is what <span style="text-decoration: underline;">I</span> meant. Understand?
-```
+# 三、函数
 
 
-看看我们的sed命令
+awk还提供了一些内置函数，方便对原始数据的处理。
+函数toupper()用于将字符转为大写。
 
 ```
-# 如果你这样搞的话，就会有问题
-$ sed 's/<.*>//g' html.txt
- Understand?
- 
-# 要解决上面的那个问题，就得像下面这样。
-# 其中的'[^>]' 指定了除了>的字符重复0次或多次。
-$ sed 's/<[^>]*>//g' html.txt
-This is what I meant. Understand?
+$ awk -F ':' '{ print toupper($1) }' demo.txt
+ROOT
+DAEMON
+BIN
+SYS
+SYNC
 ```
 
-我们再来看看指定需要替换的内容：
+上面代码中，第一个字段输出时都变成了大写。
+其他常用函数如下。
 
+- tolower()：字符转为小写。
+- length()：返回字符串长度。
+- substr()：返回子字符串。
+- sin()：正弦。
+- cos()：余弦。
+-  sqrt()：平方根。
+- rand()：随机数。
+- awk内置函数的完整列表，可以查看[手册](https://www.gnu.org/software/gawk/manual/html_node/Built_002din.html#Built_002din)。
 
-```
-$ sed "3s/my/your/g" pets.txt
-This is my cat
-  my cat's name is betty
-This is your dog
-  my dog's name is frank
-This is my fish
-  my fish's name is george
-This is my goat
-  my goat's name is adam
+# 四、条件
+
+awk允许指定输出条件，只输出符合条件的行。
+输出条件要写在动作的前面。
+
+```shell
+$ awk '条件 动作' 文件名
 ```
 
 
+请看下面的例子。
 
-下面的命令只替换第3到第6行的文本。
-
-```
-$ sed "3,6s/my/your/g" pets.txt
-This is my cat
-  my cat's name is betty
-This is your dog
-  your dog's name is frank
-This is your fish
-  your fish's name is george
-This is my goat
-  my goat's name is adam
-```
-  
-```
-  $ cat my.txt
-This is my cat, my cat's name is betty
-This is my dog, my dog's name is frank
-This is my fish, my fish's name is george
-This is my goat, my goat's name is adam
+```shell
+$ awk -F ':' '/usr/ {print $1}' demo.txt
+root
+daemon
+bin
+sys
 ```
 
 
-只替换每一行的第一个s：
+上面代码中，print命令前面是一个正则表达式，只输出包含usr的行。
 
-```
-$ sed 's/s/S/1' my.txt
+下面的例子只输出奇数行，以及输出第三行以后的行。
 
-ThiS is my cat, my cat's name is betty
+```shell
+# 输出奇数行
+$ awk -F ':' 'NR % 2 == 1 {print $1}' demo.txt
+root
+bin
+sync
 
-ThiS is my dog, my dog's name is frank
-
-ThiS is my fish, my fish's name is george
-
-ThiS is my goat, my goat's name is adam
-```
-
-只替换每一行的第二个s：
-
-```
-$ sed 's/s/S/2' my.txt
-
-This iS my cat, my cat's name is betty
-
-This iS my dog, my dog's name is frank
-
-This iS my fish, my fish's name is george
-
-This iS my goat, my goat's name is adam
-```
-
-只替换第一行的第3个以后的s：
-
-
-```
-$ sed 's/s/S/3g' my.txt
-
-This is my cat, my cat'S name iS betty
-
-This is my dog, my dog'S name iS frank
-
-This is my fiSh, my fiSh'S name iS george
-
-This is my goat, my goat'S name iS adam
+# 输出第三行以后的行
+$ awk -F ':' 'NR >3 {print $1}' demo.txt
+sys
+sync
 ```
 
 
+下面的例子输出第一个字段等于指定值的行。
 
+```shell
+$ awk -F ':' '\$1 == "root" {print $1}' demo.txt
+root
 
-> ### 多个匹配
-
-
-如果我们需要一次替换多个模式，可参看下面的示例：（第一个模式把第一行到第三行的my替换成your，第二个则把第3行以后的This替换成了That）
-
-```
-$ sed '1,3s/my/your/g; 3,$s/This/That/g' my.txt
-
-This is your cat, your cat's name is betty
-
-This is your dog, your dog's name is frank
-
-That is your fish, your fish's name is george
-
-That is my goat, my goat's name is adam
+$ awk -F ':' '\$1 == "root" || \$1 == "bin" {print $1}' demo.txt
+root
+bin
 ```
 
 
-上面的命令等价于：（注：下面使用的是sed的-e命令行参数）
+# 五、if 语句
 
-```
-sed -e '1,3s/my/your/g' -e '3,$s/This/That/g' my.txt
-```
+awk提供了if结构，用于编写复杂的条件。
 
-我们可以使用&来当做被匹配的变量，然后可以在基本左右加点东西。如下所示：
-
-```
-$ sed 's/my/[&]/g' my.txt
-
-This is [my] cat, [my] cat's name is betty
-
-This is [my] dog, [my] dog's name is frank
-
-This is [my] fish, [my] fish's name is george
-
-This is [my] goat, [my] goat's name is adam
+```shell
+$ awk -F ':' '{if ($1 > "m") print $1}' demo.txt
+root
+sys
+sync
 ```
 
 
+上面代码输出第一个字段的第一个字符大于m的行。
+if结构还可以指定else部分。
 
-> ### 圆括号匹配
-
-
-使用圆括号匹配的示例：（圆括号括起来的正则表达式所匹配的字符串会可以当成变量来使用，sed中使用的是\1,\2…）
-
-```
-$ sed 's/This is your \([^,]*\),.*is \(.*\)/\1:\2/g' my.txt
-cat:betty
-dog:frank
-fish:george
-goat:adam
+```shell
+$ awk -F ':' '{if ($1 > "m") print $1; else print "---"}' demo.txt
+root
+---
+---
+sys
+sync
 ```
 
 
-上面这个例子中的正则表达式有点复杂，解开如下（去掉转义字符）：
-
-正则为：`This is my ([^,]*),.*is (.*)`
-
-匹配为：`This is my (cat),……….is (betty)`
-
-然后：> \1就是cat，\2就是betty
-
-
-### sed的命令
-
-
-让我们回到最一开始的例子pets.txt，让我们来看几个命令：
-
-#### N命令
-
-先来看N命令 —— 把下一行的内容纳入当前缓冲区做匹配。
-
-下面的的示例会把原文本中的偶数行纳入奇数行匹配，而s只匹配并替换一次，所以，就成了下面的结果：
-
-```
-$ sed 'N;s/my/your/' pets.txt
-This is your cat
-  my cat's name is betty
-This is your dog
-  my dog's name is frank
-This is your fish
-  my fish's name is george
-This is your goat
-  my goat's name is adam
-```
-  
-也就是说，原来的文件成了：
-
-```
-This is my cat\n  my cat's name is betty
-This is my dog\n  my dog's name is frank
-This is my fish\n  my fish's name is george
-This is my goat\n  my goat's name is adam
-```
-
-
-这样一来，下面的例子你就明白了，
-
-```
-$ sed 'N;s/\n/,/' pets.txt
-This is my cat,  my cat's name is betty
-This is my dog,  my dog's name is frank
-This is my fish,  my fish's name is george
-This is my goat,  my goat's name is adam
-
-```
-
-
-####  a命令和i命令
-
- a命令就是append， i命令就是insert，它们是用来添加行的。如：
-
-```
-# 其中的1i表明，其要在第1行前插入一行（insert）
-$ sed "1 i This is my monkey, my monkey's name is wukong" my.txt
-This is my monkey, my monkey's name is wukong
-This is my cat, my cat's name is betty
-This is my dog, my dog's name is frank
-This is my fish, my fish's name is george
-This is my goat, my goat's name is adam
- 
-# 其中的1a表明，其要在最后一行后追加一行（append）
-$ sed "$ a This is my monkey, my monkey's name is wukong" my.txt
-This is my cat, my cat's name is betty
-This is my monkey, my monkey's name is wukong
-This is my dog, my dog's name is frank
-This is my fish, my fish's name is george
-This is my goat, my goat's name is adam
-```
-
-我们可以运用匹配来添加文本：
-
-```
-`# 注意其中的/fish/a，这意思是匹配到/fish/后就追加一行
-$ sed "/fish/a This is my monkey, my monkey's name is wukong" my.txt
-This is my cat, my cat's name is betty
-This is my dog, my dog's name is frank
-This is my fish, my fish's name is george
-This is my monkey, my monkey's name is wukong
-This is my goat, my goat's name is adam
-```
-
-
-下面这个例子是对每一行都插入 ----：
-
-```
-`$ sed "/my/a ----" my.txt`
-
-`This is my cat, my cat's name is betty
-----`
-
-`This is my dog, my dog's name is frank
-----`
-
-`This is my fish, my fish's name is george
-----`
-
-`This is my goat, my goat's name is adam
-----`
-
-```
-
-
-####  c命令
-
-c 命令是替换匹配行
-
-```
-
-$ sed "2 c This is my monkey, my monkey's name is wukong" my.txt
-This is my cat, my cat's name is betty
-This is my monkey, my monkey's name is wukong
-This is my fish, my fish's name is george
-This is my goat, my goat's name is adam
- 
-$ sed "/fish/c This is my monkey, my monkey's name is wukong" my.txt
-This is my cat, my cat's name is betty
-This is my dog, my dog's name is frank
-This is my monkey, my monkey's name is wukong
-This is my goat, my goat's name is adam
-```
-
-#### d命令
-
-删除匹配行
-
-```
-$ sed '/fish/d' my.txt
-This is my cat, my cat's name is betty
-This is my dog, my dog's name is frank
-This is my goat, my goat's name is adam
- 
-$ sed '2d' my.txt
-This is my cat, my cat's name is betty
-This is my fish, my fish's name is george
-This is my goat, my goat's name is adam
- 
-$ sed '2,$d' my.txt
-This is my cat, my cat's name is betty
-```
-
-
-
-#### p命令
-
-打印命令
-你可以把这个命令当成grep式的命令
-
-
-```
-# 匹配fish并输出，可以看到fish的那一行被打了两遍，
-# 这是因为sed处理时会把处理的信息输出
-$ sed '/fish/p' my.txt
-This is my cat, my cat's name is betty
-This is my dog, my dog's name is frank
-This is my fish, my fish's name is george
-This is my fish, my fish's name is george
-This is my goat, my goat's name is adam
- 
-# 使用n参数就可以只打印匹配到的结果行
-$ sed -n '/fish/p' my.txt
-This is my fish, my fish's name is george
- 
-# 从一个模式到另一个模式
-$ sed -n '/dog/,/fish/p' my.txt
-This is my dog, my dog's name is frank
-This is my fish, my fish's name is george
- 
-#从第一行打印到匹配fish成功的那一行
-$ sed -n '1,/fish/p' my.txt
-This is my cat, my cat's name is betty
-This is my dog, my dog's name is frank
-This is my fish, my fish's name is george
-```
-
-
- 
+# 六、参考链接
+- [An Awk tutorial by Example](https://gregable.com/2010/09/why-you-should-know-just-little-awk.html), Greg Grothaus
+- [30 Examples for Awk Command in Text Processing](https://likegeeks.com/awk-command/), Mokhtar Ebrahim
 
