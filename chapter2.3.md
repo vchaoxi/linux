@@ -212,6 +212,6 @@ N：上一个
 
 ```
 
-## linux 内置 vim 教程
+## linux 内置 vim 中文教程
 
 `vimtutor zn_ch`
