@@ -19,3 +19,5 @@
   * [2.6 Linux常用服务器构建-ssh和scp](chapter2.6.md)
   * [2.7 Linux常用服务器构建-samba](chapter2.7.md)
 * [三、扩展](chapter3.md)
+  * [2.1 gedit编辑器](chapter2.1.md)
+ 
