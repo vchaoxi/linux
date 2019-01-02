@@ -2,9 +2,6 @@
 
 [awk](https://en.wikipedia.org/wiki/AWK)是处理文本文件的一个应用程序，几乎所有 Linux 系统都自带这个程序。它依次处理文件的每一行，并读取里面的每一个字段。对于日志、CSV 那样的每行格式相同的文本文件,awk可能是最方便的工具。
 
-![79e964718415a7744aea33630ba82089.jpeg](evernotecid://9F850BE6-DDB6-4882-B19F-E9CC46B799D6/appyinxiangcom/3925940/ENResource/p2309)
-
-
    awk 其实不仅仅是工具软件，还是一种编程语言。不过，本文只介绍它的命令行用法，对于大多数场合，应该足够用了。
 
 # 一、基本用法
