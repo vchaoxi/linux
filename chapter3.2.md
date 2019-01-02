@@ -65,5 +65,5 @@ source ~/.vimrc
 
 
 ## 第三方插件
-## Python 开发插件安装
+### Python 开发插件安装
 1. YouCompleteMe
