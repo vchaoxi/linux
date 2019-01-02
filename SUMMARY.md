@@ -18,5 +18,6 @@
   * [2.5 Linux常用服务器构建-ftp服务器](chapter2.5.md)
   * [2.6 Linux常用服务器构建-ssh和scp](chapter2.6.md)
   * [2.7 Linux常用服务器构建-samba](chapter2.7.md)
-  * [2.8 附录-vim分屏操作](chapter2.8.md)
+* [二、扩展](chapter2.md)
+
 
