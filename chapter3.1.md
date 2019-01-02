@@ -1,26 +1,26 @@
 # Ubuntu 18.04 常用配置
 
 ## 自定义配置
-### 01. 交换左 Control 和 Caps Lock 键（重启后失效）
+### 交换左 Control 和 Caps Lock 键（重启后失效）
 
 ```
 setxkbmap -option ctrl:swapcaps
 ```
-### 02. 将 Caps Lock 键修改为 Control 键（永久生效）
+### 将 Caps Lock 键修改为 Control 键（永久生效）(推荐)
 
-1. 编辑 keyboard 文件
+- 编辑 keyboard 文件
 
 ```
 sudo vim /etc/default/keyboard
 ```
 
-2. 将 XKBOPTIONS="" 修改为
+- 将 XKBOPTIONS="" 修改为
 
 ```
 XKBOPTIONS="ctrl:nocaps"
 ```
 
-3. 运行如下命令，设置即刻生效，过程中一路回车使用默认配置
+- 运行如下命令，设置即刻生效，过程中一路回车使用默认配置
 
 ```
 sudo dpkg-reconfigure keyboard-configuration
